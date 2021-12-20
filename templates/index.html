@@ -18,10 +18,8 @@
     
     
     <h1 style="color:whitesmoke ; text-align:center; background-color:darkcyan"> Credit Card Defaulter Prediction</h1>
-    {% if result == 'Defaulter' %}
-        <h1 style="color: red;">{{ result }}</h1>
-    {% else %}
-        <h1 style="color: green;">{{ result }}</h1>   
+    {% if result %}
+        <h1 style="color: red;">{{ result }}</h1>  
     {% endif %}
     <form method="post" action="/predict">
         <label><h2 >Personal Details</h2></label><br>

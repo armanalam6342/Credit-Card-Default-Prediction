@@ -46,13 +46,16 @@ def predict_placement():
     #prediction
     
     result=model.predict(np.array(list_column).reshape(1,23))
+    result = model.predict_proba(np.array(list_column).reshape(1,23))
+    result = result.tolist()[0]
     
-    if result[0] == 1:
-        result = 'Defaulter'
-    else:
-        result = 'Not Defaulter'
+    #if result[0] == 1:
+        #result = 'Defaulter'
+    #else:
+        #result = 'Not Defaulter'
 
-    return render_template('index.html',result=result)
+    return render_template('index.html',result=(f'This Applicat has {round(result[0]*100,2)}% chances of Not Defaulting and {round(result[1]*100,2)}% chances of Defaulting'))
+    #return render_template('index.html',result=result)
     
     #return str(result)
     
